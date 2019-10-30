@@ -443,7 +443,7 @@ open class JSSAlertView: UIViewController {
 	/// Removes view from superview
 	func removeView() {
 		isAlertOpen = false
-		removeFromParent()
+        removeFromParentViewController()
 		view.removeFromSuperview()
 	}
 
@@ -515,7 +515,7 @@ extension JSSAlertView {
 		switch type {
 		case .title:
 			self.titleFont = fontStr
-			if let font = UIFont(name: self.titleFont, size: 16) {
+			if let font = UIFont(name: self.titleFont, size: 28) {
 				self.titleLabel.font = font
 			} else {
 				self.titleLabel.font = UIFont.systemFont(ofSize: 26)
