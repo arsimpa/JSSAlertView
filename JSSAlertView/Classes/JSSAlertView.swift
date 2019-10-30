@@ -47,15 +47,15 @@ open class JSSAlertView: UIViewController {
 	enum FontType {
 		case title, text, button, timer
 	}
-	var titleFont = "HelveticaNeue-Light"
-	var textFont = "HelveticaNeue"
-	var buttonFont = "HelveticaNeue-Bold"
-    var timerFont = "HelveticaNeue"
+	var titleFont = "AvenirNext-Bold"
+	var textFont = "AvenirNext-Medium"
+	var buttonFont = "AvenirNext-DemiBold"
+    var timerFont = "AvenirNext-Medium"
 
 	var defaultColor = UIColorFromHex(0xF2F4F4, alpha: 1)
 
 
-	var darkTextColor = UIColorFromHex(0x000000, alpha: 0.75)
+	var darkTextColor = UIColorFromHex(0x3B414B, alpha: 0.75)
 	var lightTextColor = UIColorFromHex(0xffffff, alpha: 0.9)
 
 	public enum ActionType {
@@ -63,7 +63,7 @@ open class JSSAlertView: UIViewController {
 	}
 
 	let baseHeight: CGFloat = 160.0
-	var alertWidth: CGFloat = 290.0
+	var alertWidth: CGFloat = 300.0
 	let buttonHeight: CGFloat = 70.0
 	let padding: CGFloat = 20.0
 
@@ -103,7 +103,7 @@ open class JSSAlertView: UIViewController {
 		if self.noButtons == false {
 			buttonLabel.textColor = color
 			if cancelButtonLabel != nil {
-				cancelButtonLabel.textColor = color
+				cancelButtonLabel.textColor = UIColorFromHex(0xffffff, alpha: 1.0)
 			}
 		}
 
@@ -169,6 +169,11 @@ open class JSSAlertView: UIViewController {
 				cancelButton.frame = CGRect(x: 0, y: yPos, width: buttonWidth - 0.5, height: buttonHeight)
 				if cancelButtonLabel != nil {
 					cancelButtonLabel.frame = CGRect(x: padding, y: (buttonHeight / 2) - 15, width: buttonWidth - (padding * 2), height: 30)
+                    cancelButtonLabel.backgroundColor = UIColorFromHex(0x1BCFED, alpha: 1)
+                    if let font = UIFont(name: "AvenirNext-DemiBold", size: 16.0) {
+                        cancelButtonLabel.font = font
+                    }
+                    
 				}
 			}
 
@@ -176,6 +181,10 @@ open class JSSAlertView: UIViewController {
 			dismissButton.frame = CGRect(x: buttonX, y: yPos, width: buttonWidth, height: buttonHeight)
 			if buttonLabel != nil {
 				buttonLabel.frame = CGRect(x: padding, y: (buttonHeight / 2) - 15, width: buttonWidth - (padding * 2), height: 30)
+                buttonLabel.backgroundColor = UIColorFromHex(0x1BCFED, alpha: 1)
+                if let font = UIFont(name: "AvenirNext-DemiBold", size: 16.0) {
+                    buttonLabel.font = font
+                }
 			}
 
 			// set button fonts
@@ -291,7 +300,7 @@ open class JSSAlertView: UIViewController {
             self.timerLabel = UILabel()
             timerLabel.textAlignment = .center
             self.timeLeft = time
-            self.timerLabel.font = UIFont(name: self.timerFont, size: 27)
+            self.timerLabel.font = UIFont(name: self.timerFont, size: 16)
             self.timerLabel.textColor = textColor
             self.containerView.addSubview(timerLabel)
             configureTimer()
@@ -302,7 +311,7 @@ open class JSSAlertView: UIViewController {
 		if !noButtons {
 			self.noButtons = false
 			dismissButton = UIButton()
-			let buttonColor = UIImage.with(color: adjustBrightness(baseColor!, amount: 0.8))
+			let buttonColor = UIImage.with(color: adjustBrightness(UIColorFromHex(0x1BCFED, alpha: 1), amount: 0.8))
 			let buttonHighlightColor = UIImage.with(color: adjustBrightness(baseColor!, amount: 0.9))
 			dismissButton.setBackgroundImage(buttonColor, for: .normal)
 			dismissButton.setBackgroundImage(buttonHighlightColor, for: .highlighted)
@@ -312,6 +321,7 @@ open class JSSAlertView: UIViewController {
 			buttonLabel = UILabel()
 			buttonLabel.textColor = textColor
 			buttonLabel.numberOfLines = 1
+            buttonLabel.font = UIFont(name: self.buttonFont, size: 12)
 			buttonLabel.textAlignment = .center
 			if let text = buttonText {
 				buttonLabel.text = text
@@ -332,11 +342,12 @@ open class JSSAlertView: UIViewController {
 				alertBackgroundView!.addSubview(cancelButton)
 				// Button text
 				cancelButtonLabel = UILabel()
-				cancelButtonLabel.alpha = 0.7
+				cancelButtonLabel.alpha = 1.0
 				cancelButtonLabel.textColor = textColor
 				cancelButtonLabel.numberOfLines = 1
 				cancelButtonLabel.textAlignment = .center
 				cancelButtonLabel.text = cancelButtonText
+                cancelButtonLabel.font = UIFont(name: self.buttonFont, size: 12)
                 cancelButton.accessibilityLabel = cancelButtonText
 				cancelButton.addSubview(cancelButtonLabel)
 			}
@@ -504,10 +515,10 @@ extension JSSAlertView {
 		switch type {
 		case .title:
 			self.titleFont = fontStr
-			if let font = UIFont(name: self.titleFont, size: 24) {
+			if let font = UIFont(name: self.titleFont, size: 16) {
 				self.titleLabel.font = font
 			} else {
-				self.titleLabel.font = UIFont.systemFont(ofSize: 24)
+				self.titleLabel.font = UIFont.systemFont(ofSize: 26)
 			}
 		case .text:
 			if self.textView != nil {
@@ -520,17 +531,20 @@ extension JSSAlertView {
 			}
 		case .button:
 			self.buttonFont = fontStr
-			if let font = UIFont(name: self.buttonFont, size: 24) {
+			if let font = UIFont(name: self.buttonFont, size: 14) {
 				self.buttonLabel.font = font
+                self.buttonLabel.backgroundColor = UIColorFromHex(0x1BCFED, alpha: 1)
+                
 			} else {
-				self.buttonLabel.font = UIFont.systemFont(ofSize: 24)
+				self.buttonLabel.font = UIFont.systemFont(ofSize: 14)
 			}
         case .timer:
             self.timerFont = fontStr
-            if let font = UIFont(name: self.timerFont, size: 27) {
+            if let font = UIFont(name: self.timerFont, size: 14) {
                 self.buttonLabel.font = font
+                self.buttonLabel.backgroundColor = UIColorFromHex(0x1BCFED, alpha: 1)
             } else {
-                self.buttonLabel.font = UIFont.systemFont(ofSize: 27)
+                self.buttonLabel.font = UIFont.systemFont(ofSize: 14)
             }
 		}
 		// relayout to account for size changes
