@@ -189,10 +189,10 @@ open class JSSAlertView: UIViewController {
 
 			// set button fonts
 			if buttonLabel != nil {
-				buttonLabel.font = UIFont(name: buttonFont, size: 20)
+				buttonLabel.font = UIFont(name: buttonFont, size: 14)
 			}
 			if cancelButtonLabel != nil {
-				cancelButtonLabel.font = UIFont(name: buttonFont, size: 20)
+				cancelButtonLabel.font = UIFont(name: buttonFont, size: 14)
 			}
 			yPos += buttonHeight
 		}else{
@@ -533,7 +533,7 @@ extension JSSAlertView {
 			self.buttonFont = fontStr
 			if let font = UIFont(name: self.buttonFont, size: 14) {
 				self.buttonLabel.font = font
-                self.buttonLabel.backgroundColor = UIColorFromHex(0x1BCFED, alpha: 1)
+                self.buttonLabel.backgroundColor = .clear
                 
 			} else {
 				self.buttonLabel.font = UIFont.systemFont(ofSize: 14)
@@ -542,7 +542,7 @@ extension JSSAlertView {
             self.timerFont = fontStr
             if let font = UIFont(name: self.timerFont, size: 14) {
                 self.buttonLabel.font = font
-                self.buttonLabel.backgroundColor = UIColorFromHex(0x1BCFED, alpha: 1)
+                self.buttonLabel.backgroundColor = .clear
             } else {
                 self.buttonLabel.font = UIFont.systemFont(ofSize: 14)
             }
