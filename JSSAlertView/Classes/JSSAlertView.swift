@@ -101,9 +101,9 @@ open class JSSAlertView: UIViewController {
             timerLabel.textColor = color
         }
 		if self.noButtons == false {
-			buttonLabel.textColor = color
+			buttonLabel.textColor = UIColorFromHex(0xffffff, alpha: 1.0) 
 			if cancelButtonLabel != nil {
-				cancelButtonLabel.textColor = UIColorFromHex(0xffffff, alpha: 1.0)
+				cancelButtonLabel.textColor = UIColorFromHex(0x3B414B, alpha: 1.0)
 			}
 		}
 
@@ -132,7 +132,7 @@ open class JSSAlertView: UIViewController {
 		// position the title
 		let titleString = titleLabel.text! as NSString
 		let titleAttr = [NSAttributedString.Key.font: titleLabel.font!]
-		let titleSize = CGSize(width: contentWidth, height: 90)
+		let titleSize = CGSize(width: contentWidth, height: 120)
 		let titleRect = titleString.boundingRect(with: titleSize, options: .usesLineFragmentOrigin, attributes: titleAttr, context: nil)
 		yPos += padding
 		titleLabel.frame = CGRect(x: padding, y: yPos, width: alertWidth - (padding * 2), height: ceil(titleRect.height))
@@ -169,19 +169,19 @@ open class JSSAlertView: UIViewController {
 				cancelButton.frame = CGRect(x: 0, y: yPos, width: buttonWidth - 0.5, height: buttonHeight)
 				if cancelButtonLabel != nil {
 					cancelButtonLabel.frame = CGRect(x: padding, y: (buttonHeight / 2) - 15, width: buttonWidth - (padding * 2), height: 30)
-                    cancelButtonLabel.backgroundColor = UIColorFromHex(0x1BCFED, alpha: 1)
+                    cancelButtonLabel.backgroundColor = UIColor.clear
                     if let font = UIFont(name: "AvenirNext-DemiBold", size: 16.0) {
                         cancelButtonLabel.font = font
                     }
                     
 				}
 			}
-
+            
 			let buttonX = buttonWidth == alertWidth ? 0 : buttonWidth
 			dismissButton.frame = CGRect(x: buttonX, y: yPos, width: buttonWidth, height: buttonHeight)
 			if buttonLabel != nil {
 				buttonLabel.frame = CGRect(x: padding, y: (buttonHeight / 2) - 15, width: buttonWidth - (padding * 2), height: 30)
-                buttonLabel.backgroundColor = UIColorFromHex(0x1BCFED, alpha: 1)
+                buttonLabel.backgroundColor = UIColor.clear
                 if let font = UIFont(name: "AvenirNext-DemiBold", size: 16.0) {
                     buttonLabel.font = font
                 }
@@ -278,7 +278,7 @@ open class JSSAlertView: UIViewController {
 		titleLabel.textColor = textColor
 		titleLabel.numberOfLines = 0
 		titleLabel.textAlignment = .center
-		titleLabel.font = UIFont(name: self.titleFont, size: 24)
+		titleLabel.font = UIFont(name: self.titleFont, size: 26)
 		titleLabel.text = title
 		containerView.addSubview(titleLabel)
 
@@ -319,9 +319,9 @@ open class JSSAlertView: UIViewController {
 			alertBackgroundView!.addSubview(dismissButton)
 			// Button text
 			buttonLabel = UILabel()
-			buttonLabel.textColor = textColor
+			buttonLabel.textColor = UIColorFromHex(0xffffff, alpha: 0.9)
 			buttonLabel.numberOfLines = 1
-            buttonLabel.font = UIFont(name: self.buttonFont, size: 12)
+            buttonLabel.font = UIFont(name: self.buttonFont, size: 14)
 			buttonLabel.textAlignment = .center
 			if let text = buttonText {
 				buttonLabel.text = text
@@ -343,7 +343,7 @@ open class JSSAlertView: UIViewController {
 				// Button text
 				cancelButtonLabel = UILabel()
 				cancelButtonLabel.alpha = 1.0
-				cancelButtonLabel.textColor = textColor
+				cancelButtonLabel.textColor = UIColorFromHex(0x3B414B, alpha: 1.0)
 				cancelButtonLabel.numberOfLines = 1
 				cancelButtonLabel.textAlignment = .center
 				cancelButtonLabel.text = cancelButtonText
@@ -515,7 +515,7 @@ extension JSSAlertView {
 		switch type {
 		case .title:
 			self.titleFont = fontStr
-			if let font = UIFont(name: self.titleFont, size: 28) {
+			if let font = UIFont(name: self.titleFont, size: 26) {
 				self.titleLabel.font = font
 			} else {
 				self.titleLabel.font = UIFont.systemFont(ofSize: 26)
@@ -533,7 +533,7 @@ extension JSSAlertView {
 			self.buttonFont = fontStr
 			if let font = UIFont(name: self.buttonFont, size: 14) {
 				self.buttonLabel.font = font
-                self.buttonLabel.backgroundColor = .clear
+                self.buttonLabel.backgroundColor = UIColor.clear
                 
 			} else {
 				self.buttonLabel.font = UIFont.systemFont(ofSize: 14)
