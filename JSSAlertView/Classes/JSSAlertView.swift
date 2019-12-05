@@ -89,6 +89,7 @@ open class JSSAlertView: UIViewController {
 	}
 
     
+    
 	/// Recolors text to given color
 	///
 	/// - Parameter color: Color to be recolored to
@@ -106,12 +107,14 @@ open class JSSAlertView: UIViewController {
 				cancelButtonLabel.textColor = UIColorFromHex(0x3B414B, alpha: 1.0)
 			}
 		}
-
 	}
-
-
-    
 	
+    override open func viewWillAppear(_ animated: Bool) {
+        
+        self.containerView.layer.cornerRadius = 20.0
+        self.containerView.clipsToBounds = true
+        self.containerView.layer.masksToBounds = true
+    }
 	open override func viewDidLayoutSubviews() {
 		super.viewWillLayoutSubviews()
 		let size = self.rootViewControllerSize()
@@ -169,7 +172,7 @@ open class JSSAlertView: UIViewController {
 				cancelButton.frame = CGRect(x: 0, y: yPos, width: buttonWidth - 0.5, height: buttonHeight)
 				if cancelButtonLabel != nil {
 					cancelButtonLabel.frame = CGRect(x: padding, y: (buttonHeight / 2) - 15, width: buttonWidth - (padding * 2), height: 30)
-                    cancelButtonLabel.backgroundColor = UIColor.clear
+                    cancelButtonLabel.backgroundColor = UIColorFromHex(0xF3F6F9, alpha: 0.9)
                     if let font = UIFont(name: "AvenirNext-DemiBold", size: 16.0) {
                         cancelButtonLabel.font = font
                     }
@@ -226,6 +229,7 @@ open class JSSAlertView: UIViewController {
 	///   - delay: Delay after which JSSAlertView automatically disapears
 	///   - timeLeft: Counter aka Tinder counter shows time in seconds
 	/// - Returns: returns JSSAlertViewResponder
+    
 	@discardableResult
 	public func show(_ viewController: UIViewController,
 	                           title: String,
@@ -239,7 +243,7 @@ open class JSSAlertView: UIViewController {
 	                           timeLeft: UInt? = nil) -> JSSAlertViewResponder {
 
 		rootViewController = viewController
-		view.backgroundColor = UIColorFromHex(0x000000, alpha: 0.7)
+		view.backgroundColor = UIColorFromHex(0xFEFEFF, alpha: 0.7)
 
 		var baseColor:UIColor?
 		if let customColor = color {
