@@ -311,7 +311,7 @@ open class JSSAlertView: UIViewController {
 		if !noButtons {
 			self.noButtons = false
 			dismissButton = UIButton()
-			let buttonColor = UIImage.with(color: adjustBrightness(UIColorFromHex(0x1BCFED, alpha: 1), amount: 0.8))
+			let buttonColor = UIImage.with(color: adjustBrightness(UIColorFromHex(0x3C3CE1, alpha: 1), amount: 0.8))
 			let buttonHighlightColor = UIImage.with(color: adjustBrightness(baseColor!, amount: 0.9))
 			dismissButton.setBackgroundImage(buttonColor, for: .normal)
 			dismissButton.setBackgroundImage(buttonHighlightColor, for: .highlighted)
