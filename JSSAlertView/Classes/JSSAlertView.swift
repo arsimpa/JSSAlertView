@@ -174,7 +174,7 @@ open class JSSAlertView: UIViewController {
 				cancelButton.frame = CGRect(x: 0, y: yPos, width: buttonWidth - 0.5, height: buttonHeight)
 				if cancelButtonLabel != nil {
 					cancelButtonLabel.frame = CGRect(x: padding, y: (buttonHeight / 2) - 15, width: buttonWidth - (padding * 2), height: 30)
-                    cancelButtonLabel.backgroundColor = UIColorFromHex(0xF3F6F9, alpha: 0.9)
+                    cancelButtonLabel.backgroundColor = .clear
                     if let font = UIFont(name: "AvenirNext-DemiBold", size: 16.0) {
                         cancelButtonLabel.font = font
                     }
@@ -266,7 +266,7 @@ open class JSSAlertView: UIViewController {
 
 		// Background view/main color
 		alertBackgroundView = UIView()
-		alertBackgroundView.backgroundColor = baseColor
+		alertBackgroundView.backgroundColor = UIColorFromHex(0xFEFEFF, alpha: 1)
 		alertBackgroundView.layer.cornerRadius = 4
 		alertBackgroundView.layer.masksToBounds = true
 		containerView.addSubview(alertBackgroundView!)
