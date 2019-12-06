@@ -317,7 +317,7 @@ open class JSSAlertView: UIViewController {
 			self.noButtons = false
 			dismissButton = UIButton()
 			let buttonColor = UIImage.with(color: adjustBrightness(UIColorFromHex(0x3C3CE1, alpha: 1), amount: 0.8))
-			let buttonHighlightColor = UIImage.with(color: adjustBrightness(baseColor!, amount: 0.9))
+			let buttonHighlightColor = UIImage.with(color: adjustBrightness(UIColorFromHex(0xF1F1FC, alpha: 1), amount: 0.8))
 			dismissButton.setBackgroundImage(buttonColor, for: .normal)
 			dismissButton.setBackgroundImage(buttonHighlightColor, for: .highlighted)
 			dismissButton.addTarget(self, action: #selector(buttonTap), for: .touchUpInside)
@@ -339,8 +339,9 @@ open class JSSAlertView: UIViewController {
 			// Second cancel button
 			if cancelButtonText != nil {
 				cancelButton = UIButton()
-				let buttonColor = UIImage.with(color: adjustBrightness(baseColor!, amount: 0.8))
-				let buttonHighlightColor = UIImage.with(color: adjustBrightness(baseColor!, amount: 0.9))
+                //FEFEFF
+				let buttonColor = UIImage.with(color: adjustBrightness(UIColorFromHex(0xF3F6F9, alpha: 1), amount: 0.8))
+				let buttonHighlightColor = UIImage.with(color: adjustBrightness(UIColorFromHex(0xFEFEFF, alpha: 1), amount: 0.8))
 				cancelButton.setBackgroundImage(buttonColor, for: .normal)
 				cancelButton.setBackgroundImage(buttonHighlightColor, for: .highlighted)
 				cancelButton.addTarget(self, action: #selector(JSSAlertView.cancelButtonTap), for: .touchUpInside)
