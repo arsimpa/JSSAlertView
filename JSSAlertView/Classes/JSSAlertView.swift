@@ -449,7 +449,7 @@ open class JSSAlertView: UIViewController {
 	/// Removes view from superview
 	func removeView() {
 		isAlertOpen = false
-        removeFromParentViewController()
+        removeFromParent()
 		view.removeFromSuperview()
 	}
 

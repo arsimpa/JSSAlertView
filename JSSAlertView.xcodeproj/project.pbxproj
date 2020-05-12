@@ -12,8 +12,6 @@
 		9F284C7B20BBCFA20083AC94 /* JSSAlertView+Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F284C7520BBCFA20083AC94 /* JSSAlertView+Timer.swift */; };
 		9F284C7C20BBCFA20083AC94 /* JSSAlertView+Predefined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F284C7620BBCFA20083AC94 /* JSSAlertView+Predefined.swift */; };
 		9F284C7D20BBCFA20083AC94 /* JSSAlertViewResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F284C7720BBCFA20083AC94 /* JSSAlertViewResponder.swift */; };
-		9F284C7E20BBCFA20083AC94 /* JSSAlertView+Depricated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F284C7820BBCFA20083AC94 /* JSSAlertView+Depricated.swift */; };
-		9F284C8020BBCFC30083AC94 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F284C7F20BBCFC20083AC94 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +20,6 @@
 		9F284C7520BBCFA20083AC94 /* JSSAlertView+Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "JSSAlertView+Timer.swift"; path = "Classes/JSSAlertView+Timer.swift"; sourceTree = "<group>"; };
 		9F284C7620BBCFA20083AC94 /* JSSAlertView+Predefined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "JSSAlertView+Predefined.swift"; path = "Classes/JSSAlertView+Predefined.swift"; sourceTree = "<group>"; };
 		9F284C7720BBCFA20083AC94 /* JSSAlertViewResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSSAlertViewResponder.swift; path = Classes/JSSAlertViewResponder.swift; sourceTree = "<group>"; };
-		9F284C7820BBCFA20083AC94 /* JSSAlertView+Depricated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "JSSAlertView+Depricated.swift"; path = "Classes/JSSAlertView+Depricated.swift"; sourceTree = "<group>"; };
 		9F284C7F20BBCFC20083AC94 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F994F9B20BBBD7E0073940D /* JSSAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JSSAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -58,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				9F284C7420BBCFA20083AC94 /* JSSAlertView.swift */,
-				9F284C7820BBCFA20083AC94 /* JSSAlertView+Depricated.swift */,
 				9F284C7620BBCFA20083AC94 /* JSSAlertView+Predefined.swift */,
 				9F284C7520BBCFA20083AC94 /* JSSAlertView+Timer.swift */,
 				9F284C7320BBCFA20083AC94 /* JSSAlertView+UIColor.swift */,
@@ -105,7 +101,7 @@
 		9F994F9220BBBD7E0073940D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = org.cocoapods.JSSAlertView;
 				TargetAttributes = {
 					9F994F9A20BBBD7E0073940D = {
@@ -136,7 +132,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F284C8020BBCFC30083AC94 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,7 +147,6 @@
 				9F284C7920BBCFA20083AC94 /* JSSAlertView+UIColor.swift in Sources */,
 				9F284C7B20BBCFA20083AC94 /* JSSAlertView+Timer.swift in Sources */,
 				9F284C7D20BBCFA20083AC94 /* JSSAlertViewResponder.swift in Sources */,
-				9F284C7E20BBCFA20083AC94 /* JSSAlertView+Depricated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +295,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -327,7 +321,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = JSSAlertView.JSSAlertView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
